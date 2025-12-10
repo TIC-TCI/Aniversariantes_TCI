@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aniversariantes do Mês - TCI</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="webpart-container">
+        <div class="header">
+            <div class="logo-accent">🎂</div>
+            <h1>🎉 Aniversariantes</h1>
+            <p>Celebrando nossos colaboradores</p>
+        </div>
+
+        <div id="month-info" class="month-info">
+            <h2 id="current-month"></h2>
+            <p id="month-description"></p>
+        </div>
+
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Carregando aniversariantes...</p>
+        </div>
+
+        <div id="error" class="error" style="display: none;">
+            <h3>⌨ Erro ao Carregar Dados</h3>
+            <p id="error-message"></p>
+            <button class="reload-btn" onclick="window.location.reload()">🔄 Recarregar</button>
+        </div>
+
+        <div id="contador-container" class="saiba-mais-container" style="display: none;">
+            <div class="contador-aniversariantes" id="contador-aniversariantes"></div>
+        </div>
+
+        <div id="aniversariantes" class="aniversariantes-grid"></div>
+
+        <div id="saiba-mais-container" class="saiba-mais-container" style="display: none;">
+            <button class="saiba-mais-btn" onclick="redirecionarParaTodosAniversariantes()">
+                📅 Ver Todos os Aniversariantes
+                <span>→</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

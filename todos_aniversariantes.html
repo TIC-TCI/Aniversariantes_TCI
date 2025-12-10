@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todos os Aniversariantes - TCI</title>
+    <link rel="stylesheet" href="css/todos_aniversariantes.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="index.html" class="back-btn">
+                ← Voltar
+            </a>
+
+            <div class="logo-accent">🎂</div>
+            <h1>🎉 Todos os Aniversariantes</h1>
+        </div>
+
+        <div class="month-selector">
+            <div class="month-selector-content">
+                <div class="month-info">
+                    <h2 id="current-month-display"></h2>
+                    <p id="month-description"></p>
+                </div>
+
+                <div class="month-controls">
+                    <button class="month-btn" onclick="alterarMes(-1)">‹</button>
+                    <select class="month-select" id="month-select" onchange="selecionarMes()">
+                        <option value="1">Janeiro</option>
+                        <option value="2">Fevereiro</option>
+                        <option value="3">Março</option>
+                        <option value="4">Abril</option>
+                        <option value="5">Maio</option>
+                        <option value="6">Junho</option>
+                        <option value="7">Julho</option>
+                        <option value="8">Agosto</option>
+                        <option value="9">Setembro</option>
+                        <option value="10">Outubro</option>
+                        <option value="11">Novembro</option>
+                        <option value="12">Dezembro</option>
+                    </select>
+                    <button class="month-btn" onclick="alterarMes(1)">›</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Carregando aniversariantes...</p>
+        </div>
+
+        <div id="error" class="error" style="display: none;">
+            <h3>⌨ Erro ao Carregar Dados</h3>
+            <p id="error-message"></p>
+            <button class="reload-btn" onclick="window.location.reload()">🔄 Recarregar</button>
+        </div>
+
+        <div id="contador-container" style="display: none;">
+            <div class="contador-total" id="contador-total"></div>
+        </div>
+
+        <div id="aniversariantes" class="aniversariantes-grid"></div>
+    </div>
+
+    <script src="js/todos_aniversariantes.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,546 @@
+/* ============================================
+   SISTEMA DE ANIVERSARIANTES TCI
+   Estilos da Página Principal (index.html)
+   ============================================ */
+
+:root {
+    /* Paleta TCI */
+    --primary-dark: #2B3D7A;
+    --primary-medium: #4A90E2;
+    --primary-light: #7BB3F0;
+    --accent-aqua: #5DCBDC;
+    --neutral-dark: #4A4A4A;
+    --neutral-medium: #707070;
+    --neutral-light: #F8F9FA;
+    --white: #FFFFFF;
+    --success: #27AE60;
+    --error: #E74C3C;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+
+/* ============================================
+   ESTILOS ESPECÍFICOS PARA SHAREPOINT
+   ============================================ */
+
+.ms-webpart-chrome-title {
+    display: none !important;
+}
+
+.ms-webpartzone-cell {
+    vertical-align: top !important;
+}
+
+.ms-rte-layoutszone-inner {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.ms-webpart-chrome {
+    border: none !important;
+}
+
+.ms-rte-wpbox {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+
+/* ============================================
+   CONTAINER PRINCIPAL
+   ============================================ */
+
+.webpart-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 280px;
+    background: var(--white);
+    border-radius: 8px;
+    padding: 16px;
+    margin: 0;
+    box-shadow: 0 2px 8px rgba(43, 61, 122, 0.08);
+    border: 1px solid rgba(43, 61, 122, 0.1);
+    overflow: hidden;
+    position: relative;
+    min-height: 200px;
+    max-height: none;
+}
+
+
+/* ============================================
+   CABEÇALHO
+   ============================================ */
+
+.header {
+    text-align: center;
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.header h1 {
+    color: var(--primary-dark);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary-medium));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.2;
+}
+
+.header p {
+    color: var(--neutral-medium);
+    font-size: 0.85rem;
+    font-weight: 400;
+}
+
+.logo-accent {
+    position: absolute;
+    top: -8px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--primary-medium), var(--accent-aqua));
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    animation: float 3s ease-in-out infinite;
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.15);
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+
+/* ============================================
+   INFORMAÇÕES DO MÊS
+   ============================================ */
+
+.month-info {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary-medium));
+    color: var(--white);
+    padding: 16px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 12px rgba(43, 61, 122, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.month-info::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+    animation: shimmer 4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+}
+
+.month-info h2 {
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+    position: relative;
+    z-index: 1;
+}
+
+.month-info p {
+    opacity: 0.9;
+    font-size: 0.8rem;
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ============================================
+   ESTADOS DE CARREGAMENTO E ERRO
+   ============================================ */
+
+.loading {
+    text-align: center;
+    padding: 24px;
+    color: var(--neutral-medium);
+    font-size: 0.9rem;
+}
+
+.spinner {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    border: 2px solid rgba(74, 144, 226, 0.2);
+    border-top: 2px solid var(--primary-medium);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 12px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.error {
+    background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), rgba(231, 76, 60, 0.05));
+    border: 1px solid rgba(231, 76, 60, 0.3);
+    color: var(--error);
+    padding: 16px;
+    border-radius: 10px;
+    margin: 12px 0;
+    text-align: center;
+    font-weight: 500;
+    font-size: 0.85rem;
+}
+
+
+/* ============================================
+   GRID DE ANIVERSARIANTES
+   ============================================ */
+
+.aniversariantes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 12px;
+    margin-top: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* ============================================
+   CARDS DE ANIVERSARIANTES
+   ============================================ */
+
+.aniversariante-card {
+    background: linear-gradient(135deg, var(--white), rgba(248, 249, 250, 0.8));
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 4px 16px rgba(43, 61, 122, 0.06);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    min-width: 0;
+    width: 100%;
+}
+
+.aniversariante-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-dark), var(--primary-medium), var(--accent-aqua));
+}
+
+.aniversariante-card:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 8px 24px rgba(43, 61, 122, 0.12);
+}
+
+
+/* ============================================
+   FOTOS E AVATARES
+   ============================================ */
+
+.foto-container {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.foto {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--white);
+    box-shadow: 0 4px 12px rgba(43, 61, 122, 0.08);
+    transition: all 0.3s ease;
+}
+
+.foto:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(43, 61, 122, 0.12);
+}
+
+.foto-placeholder {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-medium), var(--accent-aqua));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin: 0 auto;
+    box-shadow: 0 4px 12px rgba(43, 61, 122, 0.08);
+    border: 3px solid var(--white);
+}
+
+
+/* ============================================
+   INFORMAÇÕES DO CARD
+   ============================================ */
+
+.info h3 {
+    color: var(--primary-dark);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-align: center;
+    line-height: 1.2;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+.info p {
+    color: var(--neutral-medium);
+    margin-bottom: 6px;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.info .data-aniversario {
+    background: linear-gradient(135deg, var(--accent-aqua), var(--primary-light));
+    color: var(--white);
+    padding: 8px 16px;
+    border-radius: 16px;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 12px;
+    box-shadow: 0 4px 10px rgba(93, 203, 220, 0.15);
+    font-size: 0.8rem;
+}
+
+
+/* ============================================
+   MENSAGEM SEM DADOS
+   ============================================ */
+
+.no-data {
+    text-align: center;
+    color: var(--neutral-medium);
+    font-size: 0.9rem;
+    padding: 32px 16px;
+    background: linear-gradient(135deg, var(--neutral-light), rgba(248, 249, 250, 0.8));
+    border-radius: 12px;
+    border: 2px dashed rgba(74, 144, 226, 0.2);
+    grid-column: 1 / -1;
+}
+
+.no-data h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: var(--primary-medium);
+}
+
+
+/* ============================================
+   BOTÕES
+   ============================================ */
+
+.reload-btn {
+    background: linear-gradient(135deg, var(--primary-medium), var(--primary-dark));
+    color: var(--white);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 16px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(74, 144, 226, 0.15);
+    margin-top: 12px;
+}
+
+.reload-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(74, 144, 226, 0.2);
+}
+
+
+/* ============================================
+   BOTÃO "SAIBA MAIS"
+   ============================================ */
+
+.saiba-mais-container {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(74, 144, 226, 0.1);
+}
+
+.saiba-mais-btn {
+    background: linear-gradient(135deg, var(--accent-aqua), var(--primary-light));
+    color: var(--white);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(93, 203, 220, 0.2);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.saiba-mais-btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 6px 18px rgba(93, 203, 220, 0.3);
+}
+
+.contador-aniversariantes {
+    background: rgba(93, 203, 220, 0.1);
+    color: var(--primary-dark);
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    display: inline-block;
+}
+
+
+/* ============================================
+   SCROLLBAR PERSONALIZADA
+   ============================================ */
+
+.webpart-container::-webkit-scrollbar {
+    width: 4px;
+}
+
+.webpart-container::-webkit-scrollbar-track {
+    background: rgba(248, 249, 250, 0.3);
+    border-radius: 2px;
+}
+
+.webpart-container::-webkit-scrollbar-thumb {
+    background: rgba(74, 144, 226, 0.2);
+    border-radius: 2px;
+}
+
+.webpart-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(74, 144, 226, 0.3);
+}
+
+
+/* ============================================
+   RESPONSIVIDADE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .webpart-container {
+        padding: 12px;
+        border-radius: 6px;
+    }
+    .aniversariantes-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    .header h1 {
+        font-size: 1.2rem;
+    }
+    .logo-accent {
+        position: static;
+        margin: 0 auto 12px;
+        width: 36px;
+        height: 36px;
+        font-size: 1.1rem;
+    }
+    .month-info {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .webpart-container {
+        padding: 10px;
+        border-radius: 4px;
+        min-width: 250px;
+    }
+    .aniversariante-card {
+        padding: 12px;
+        border-radius: 8px;
+    }
+    .foto,
+    .foto-placeholder {
+        width: 56px;
+        height: 56px;
+    }
+    .foto-placeholder {
+        font-size: 1.2rem;
+    }
+    .info h3 {
+        font-size: 0.95rem;
+    }
+    .info p {
+        font-size: 0.75rem;
+    }
+    .info .data-aniversario {
+        padding: 6px 12px;
+        font-size: 0.75rem;
+    }
+    .saiba-mais-btn {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+    }
+    .header h1 {
+        font-size: 1.1rem;
+    }
+    .month-info h2 {
+        font-size: 1.1rem;
+    }
+    .month-info p {
+        font-size: 0.75rem;
+    }
+}
